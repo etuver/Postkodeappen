@@ -21,6 +21,11 @@ public class PostalAdressRegister {
         return postalAdressRegister;
     }
 
+    /**
+     *
+     * @param postalCode
+     * @return
+
     public ArrayList<PostalAdress> searchByPostalCode(String postalCode){
         ArrayList result = new ArrayList();
         for (int i = 0; i < postalAdressRegister.size(); i++){
@@ -29,6 +34,12 @@ public class PostalAdressRegister {
             }
         }
         return result;
+    }  */
+    public List<PostalAdress> searchByPostalCode(String postalCode){
+        List<PostalAdress> codeMatches = postalAdressRegister.stream()
+                .filter(p -> p.getPostalCode().contains(postalCode))
+                .collect(Collectors.toList());
+        return codeMatches;
     }
 
 
