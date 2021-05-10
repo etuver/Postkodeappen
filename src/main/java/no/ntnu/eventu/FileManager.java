@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class FileManager {
 
-    public void readFromFile(PostalAdressRegister postalAdressRegister, String fileName) throws FileNotFoundException {
+    public void readFromFile(PostalAdressRegister postalAdressRegister, String fileName) throws FileNotFoundException, IllegalArgumentException {
         Scanner scanner = new Scanner(new File(fileName));
         while (scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -15,8 +15,4 @@ public class FileManager {
         }
         scanner.close();
     }
-
-
-
-
 }
