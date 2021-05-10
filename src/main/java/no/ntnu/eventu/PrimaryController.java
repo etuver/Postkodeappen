@@ -101,6 +101,11 @@ public class PrimaryController {
         });
     }
 
+    /**
+     * Handles user pressing search button
+     * A search must be minimum two characters long
+     * If the input is a a number with four or less digits searches for postal code, else searches addresses
+     */
     private void handleSearch() {
         if (searchTxt.getText().length() <2 || searchTxt.getText().isBlank()){
             errorLabel.setText("Vennligst fyll inn minst to tall eller bokstaver for å søke");
@@ -113,11 +118,19 @@ public class PrimaryController {
         }}
     }
 
+    /**
+     * Handles if user presses show all button
+     * Shows all postal codes
+     */
     private void handleShowAll() {
         clearTable();
         postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
     }
 
+    /**
+     * Handles user pressing the close menu item
+     * pops a confirm dialog and if user  clicks yes shuts down
+     */
     private void handleClose() {
         Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION, "Er du sikker på at du vil avslutte?", ButtonType.YES, ButtonType.NO);
         exitAlert.setTitle("Confirm exit");
@@ -129,18 +142,27 @@ public class PrimaryController {
         }
     }
 
+    /**
+     * Handles user pressing the help menu item
+     */
     private void handleHelp() {
 
     }
 
+    /**
+     * Handles user pressing the about menu item
+     */
     private void handleAbout() {
 
     }
 
+    /**
+     *
+     */
     private void importData() {
         try {
             fileManager.readFromFile(postalAdressRegister, "src/main/resources/no/ntnu/eventu/Postnummerregister.txt");
-        } catch (FileNotFoundException f) {
+        } catch (FileNotFoundException |IllegalArgumentException f) {
             errorLabel.setText(f.getMessage());
         }
     }
