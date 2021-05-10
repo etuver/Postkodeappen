@@ -45,7 +45,7 @@ public class PostalAdressRegister {
 
     public List<PostalAdress> searchByAdress(String adress){
         List<PostalAdress> matches = postalAdressRegister.stream()
-                .filter(p -> p.getPostalAdress().contains(adress) || p.getMunicipalityName().contains(adress))
+                .filter(p -> p.getPostalAdress().toLowerCase().contains(adress.toLowerCase()) || p.getMunicipalityName().toLowerCase().contains(adress.toLowerCase()))
                 .collect(Collectors.toList());
         return matches;
     }
