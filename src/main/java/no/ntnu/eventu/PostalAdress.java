@@ -3,15 +3,24 @@ package no.ntnu.eventu;
 public class PostalAdress {
 
     private final String postalCode;
-    private final String postalAdress;
+    private final String postalAddress;
     private final String municipalityCode;
     private final String municipalityName;
     private final String postalAdressCategory;
 
 
-    public PostalAdress(String postalCode, String postalAdress, String municipalityCode, String municipalityName, String postalAdressCategory){
+    public PostalAdress(String postalCode, String postalAddress, String municipalityCode, String municipalityName, String postalAdressCategory){
+        if (!postalCodeValidator(postalCode)){
+            throw new IllegalArgumentException("Invalid postal code");
+        }else if (postalAddress.isBlank() ){
+            throw new IllegalArgumentException("Invalid postal address");
+        }else if (municipalityCode.isBlank()){
+            throw new IllegalArgumentException("invalid municipality Code");
+        }else if (municipalityName.isBlank()){
+            throw new IllegalArgumentException("invalid municipality name");
+        }
         this.postalCode = postalCode;
-        this.postalAdress = postalAdress;
+        this.postalAddress = postalAddress;
         this.municipalityCode = municipalityCode;
         this.municipalityName = municipalityName;
         this.postalAdressCategory = postalAdressCategory;
@@ -23,7 +32,7 @@ public class PostalAdress {
     }
 
     public String getPostalAdress() {
-        return postalAdress;
+        return postalAddress;
     }
 
     public String getMunicipalityCode() {
@@ -50,11 +59,16 @@ public class PostalAdress {
         }
     }
 
+    private boolean postalCodeValidator(String postalCode){
+        return postalCode.matches("^[0-9]*$")&& postalCode.length() == 4;
+    }
+
+
     @Override
     public String toString() {
         return "PostalAdress{" +
                 "postalCode='" + postalCode + '\'' +
-                ", postalAdress='" + postalAdress + '\'' +
+                ", postalAdress='" + postalAddress + '\'' +
                 ", municipalityCode='" + municipalityCode + '\'' +
                 ", municipalityName='" + municipalityName + '\'' +
                 ", postalAdressCategory='" + postalAdressCategory + '\'' +
