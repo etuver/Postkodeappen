@@ -8,10 +8,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.eventu.PrimaryController">
    <top>
-      <SplitPane orientation="VERTICAL" prefHeight="101.0" prefWidth="862.0" BorderPane.alignment="CENTER" style="-fx-box-border:transparent;">
+      <SplitPane orientation="VERTICAL" prefHeight="51.0" prefWidth="862.0" style="-fx-box-border:transparent;" BorderPane.alignment="CENTER">
          <items>
             <MenuBar>
               <menus>
@@ -36,20 +35,21 @@
       </SplitPane>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="searchTxt" layoutX="215.0" layoutY="48.0" prefHeight="25.0" prefWidth="432.0" promptText="Skriv inn postnummer eller adresse/ gatenavn" />
+            <Button fx:id="searchBtn" layoutX="284.0" layoutY="92.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Søk " />
+            <Button fx:id="showAllBtn" layoutX="468.0" layoutY="92.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Vis alle" />
+            <Label fx:id="errorLabel" layoutX="271.0" layoutY="14.0" prefHeight="17.0" prefWidth="287.0" text="Dette er en errorlabel" textFill="#fc0000" />
+         </children></Pane>
    </bottom>
    <right>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="256.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="256.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
