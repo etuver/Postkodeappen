@@ -1,5 +1,7 @@
 package no.ntnu.eventu;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,6 +21,8 @@ public class PrimaryController {
      */
     PostalAdressRegister postalAdressRegister = PostalAdressRegister.getInstance();
 
+    FileManager fileManager = new FileManager();
+
 
 
     private void addTestData(){
@@ -33,8 +37,13 @@ public class PrimaryController {
 
 
     @FXML
-    private void initialize(){
-        addTestData();
+    private void initialize() throws FileNotFoundException {
+        //addTestData();
+        try {
+            fileManager.readFromFile(postalAdressRegister, "src/main/resources/no/ntnu/eventu/Postnummerregister.csv");
+        }catch (FileNotFoundException f){
+            errorLabel.setText(f.getMessage());
+        }
 
         TableColumn<PostalAdress, String> postalCodeColumn = new TableColumn<>("Postnummer");
         postalCodeColumn.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
@@ -53,11 +62,8 @@ public class PrimaryController {
         postalAdressTable.getColumns().add(postalCodeCategoryColumn);
 
 
-
-        // Fill table
-        //postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
-
         showAllBtn.setOnAction(event -> {
+            postalAdressTable.getItems().clear();
             postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
                 });
 
