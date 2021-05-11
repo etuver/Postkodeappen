@@ -22,9 +22,17 @@ public class FileManager {
     public void readFromFile(PostalAdressRegister postalAdressRegister, String fileName) throws FileNotFoundException, IllegalArgumentException {
         Scanner scanner = new Scanner(new File(fileName));
         while (scanner.hasNextLine()){
-            String line = scanner.nextLine();
-            String[] lineInfo = line.split("\t");
-            postalAdressRegister.registerPostalAdress(lineInfo[0], lineInfo[1], lineInfo[2], lineInfo[3], lineInfo[4]);
+                String line = scanner.nextLine();
+                if (!line.isBlank()){
+                    String[] lineInfo = line.split("\t");
+                    if (lineInfo.length ==5){
+                        try {
+                            postalAdressRegister.registerPostalAdress(lineInfo[0], lineInfo[1], lineInfo[2], lineInfo[3], lineInfo[4]);
+                        }catch (IllegalArgumentException ignored){
+                        }
+
+                    }
+                }
         }
         scanner.close();
     }
