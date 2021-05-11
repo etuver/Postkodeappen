@@ -33,23 +33,28 @@
       </SplitPane>
    </top>
    <center>
-      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"  />
+      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" styleClass="tableView"/>
    </center>
    <bottom>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="searchTxt" layoutX="215.0" layoutY="48.0" prefHeight="42.0" prefWidth="432.0" promptText="Skriv inn postnummer eller adresse/ gatenavn">
+            <TextField fx:id="searchTxt" layoutX="215.0" layoutY="48.0" prefHeight="42.0" prefWidth="432.0" promptText="Skriv inn postnummer eller poststed / kommune">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <Button fx:id="searchBtn" layoutX="283.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Søk " styleClass="button">
+            <Button fx:id="searchBtn" layoutX="283.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" styleClass="searchButton" text="Søk" >
                <font>
                   <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="showAllBtn" layoutX="470.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Vis alle" styleClass="button">
+               </font>
+                <tooltip>
+                    <Tooltip text="Søk" />
+                </tooltip></Button>
+            <Button fx:id="showAllBtn" layoutX="470.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" styleClass="showAllButton" text="Vis Alle" >
                <font>
                   <Font size="14.0" />
-               </font></Button>
+               </font><tooltip>
+                <Tooltip text="Vis alle" />
+            </tooltip></Button>
             <Label fx:id="errorLabel" layoutX="215.0" layoutY="10.0" prefHeight="38.0" prefWidth="510.0" textFill="#fc0000">
                <font>
                   <Font size="19.0" />
