@@ -52,7 +52,8 @@ class FileManagerTest {
 
     /**
      * Testing reading from a file with a blank line
-     * @throws FileNotFoundException
+     * Skips empty line and continue
+     * @throws FileNotFoundException if testfile not ofund
      */
     @Test
     public void testReadFromFileBlankLine() throws FileNotFoundException {
@@ -62,15 +63,15 @@ class FileManagerTest {
 
 
     /**
-     * Positive  test
-     * Testing reading from a file with invalid Post adress inputs
-     * @throws FileNotFoundException
+     * Negative test
+     * Testing reading from a file with invalid post address inputs
+     *
      */
     @Test
-    public void testReadFromFileInvalidInput() throws FileNotFoundException {
-
-           fileManager.readFromFile(register,"src/test/resources/TestFileInvalidAdress.txt");
-        assertEquals(17, register.getPostalAdressRegister().size());
+    public void testReadFromFileInvalidInput() {
+        assertThrows(IllegalArgumentException.class,
+                () -> {  fileManager.readFromFile(register, "src/test/resources/TestFileInvalidAdress.txt");;});
+        assertEquals(1, register.getPostalAdressRegister().size());
     }
 
 
