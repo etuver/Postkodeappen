@@ -95,6 +95,7 @@ public class PrimaryController {
         postalCodeCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("postalAdressCategory"));
         postalAdressTable.getColumns().add(postalCodeCategoryColumn);
 
+        postalAdressTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         // Actionevents
         helpMenuBtn.setOnAction(event -> {
@@ -127,7 +128,6 @@ public class PrimaryController {
                 }
             }
         });
-
     }
 
 
@@ -138,6 +138,7 @@ public class PrimaryController {
      * If the input is a a number with four or less digits searches for postal code, else searches addresses
      */
     private void handleSearch() {
+        errorLabel.setText("");
         if (searchTxt.getText().length() <2 || searchTxt.getText().isBlank()){
             errorLabel.setText("Vennligst fyll inn minst to tall eller bokstaver for å søke");
         }else {
@@ -154,6 +155,7 @@ public class PrimaryController {
      * Shows all postal codes
      */
     private void handleShowAll() {
+        //errorLabel.setText("");
         clearTable();
         postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
     }
@@ -198,7 +200,7 @@ public class PrimaryController {
         try {
             fileManager.readFromFile(postalAdressRegister, "src/main/resources/no/ntnu/eventu/Postnummerregister.txt");
         } catch (FileNotFoundException |IllegalArgumentException f) {
-            errorLabel.setText(f.getMessage());
+            errorLabel.setText("Det er en feil i filen: "+f.getMessage());
         }
     }
 
