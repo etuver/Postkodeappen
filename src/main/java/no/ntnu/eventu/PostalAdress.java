@@ -1,5 +1,9 @@
 package no.ntnu.eventu;
 
+/**
+ * A class representing a postal address
+ * @author Eventu
+ */
 public class PostalAdress {
 
     private final String postalCode;
@@ -8,7 +12,14 @@ public class PostalAdress {
     private final String municipalityName;
     private final String postalAdressCategory;
 
-
+    /**
+     * method to create a postal address
+     * @param postalCode four digit number
+     * @param postalAddress address for the postal code can not be empty
+     * @param municipalityCode not used in this app but is given by the data. not relevant for the user in this application, can not be empty
+     * @param municipalityName name of the municipality can not be empty
+     * @param postalAdressCategory category of the postal adress. can be B, F, G, P or S.
+     */
     public PostalAdress(String postalCode, String postalAddress, String municipalityCode, String municipalityName, String postalAdressCategory){
         if (!postalCodeValidator(postalCode)){
             throw new IllegalArgumentException("Invalid postal code");
@@ -43,6 +54,11 @@ public class PostalAdress {
         return municipalityName;
     }
 
+
+    /**
+     * Method which return what category the postal address is as a description instead of character
+     * @return the category description
+     */
     public String getPostalAdressCategory() {
         if (postalAdressCategory.equalsIgnoreCase("B")){
             return "Gateadresser og postbokser";
@@ -53,12 +69,18 @@ public class PostalAdress {
         }else if (postalAdressCategory.equalsIgnoreCase("P")){
             return "Postbokser";
         }else if (postalAdressCategory.equalsIgnoreCase("S")){
-            return "Servicepostnummber";
+            return "Servicepostnummer";
         }else {
             return "Ukjent";
         }
     }
 
+    /**
+     * Method to validate a postal code
+     * A valid postal code is any four digit number
+     * @param postalCode the postal code to check
+     * @return true if valid, else false
+     */
     private boolean postalCodeValidator(String postalCode){
         return postalCode.matches("^[0-9]*$")&& postalCode.length() == 4;
     }
