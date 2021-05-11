@@ -8,7 +8,14 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import no.ntnu.eventu.Minidialogs.AboutDialog;
+import no.ntnu.eventu.Minidialogs.ExitDialog;
+import no.ntnu.eventu.Minidialogs.HelpDialog;
 
+/**
+ * Controller for the app primary view
+ * @author Eventu
+ */
 public class PrimaryController {
 
     //Tableview
@@ -58,6 +65,11 @@ public class PrimaryController {
     }
 
 
+    /**
+     * Method initialized when the controller is started
+     * imports data and show all postal numbers in the table on boot
+     * also handles action events
+     */
     @FXML
     private void initialize() {
         //addTestData();
@@ -101,6 +113,7 @@ public class PrimaryController {
         });
     }
 
+
     /**
      * Handles user pressing search button
      * A search must be minimum two characters long
@@ -129,35 +142,41 @@ public class PrimaryController {
 
     /**
      * Handles user pressing the close menu item
-     * pops a confirm dialog and if user  clicks yes shuts down
+     * pops a confirm dialog and if user clicks yes shuts down
      */
     private void handleClose() {
-        Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION, "Er du sikker på at du vil avslutte?", ButtonType.YES, ButtonType.NO);
-        exitAlert.setTitle("Confirm exit");
-        exitAlert.setHeaderText("Avslutte?");
-        exitAlert.setAlertType(Alert.AlertType.WARNING);
-        exitAlert.showAndWait();
-        if (exitAlert.getResult() == ButtonType.YES){
+        ExitDialog exitDialog = new ExitDialog();
+        if (exitDialog.getDialog().showAndWait().get() == ButtonType.YES){
             Platform.exit();
         }
     }
 
     /**
      * Handles user pressing the help menu item
+     * opens a new HelpDialog
      */
     private void handleHelp() {
+        HelpDialog helpDialog = new HelpDialog();
+        helpDialog.getDialog().showAndWait();
+
 
     }
 
     /**
      * Handles user pressing the about menu item
+     * Opens a new AboutDialog
      */
     private void handleAbout() {
+        AboutDialog aboutDialog = new AboutDialog();
+        aboutDialog.getDialog().showAndWait();
+
 
     }
 
+
     /**
-     *
+     * Gets data from chosen text file and puts it into the register
+     * Puts any exception messages to the error label
      */
     private void importData() {
         try {
