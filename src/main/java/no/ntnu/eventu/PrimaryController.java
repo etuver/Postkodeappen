@@ -5,9 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import no.ntnu.eventu.Minidialogs.AboutDialog;
 import no.ntnu.eventu.Minidialogs.ExitDialog;
 import no.ntnu.eventu.Minidialogs.HelpDialog;
@@ -92,6 +95,8 @@ public class PrimaryController {
         postalCodeCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("postalAdressCategory"));
         postalAdressTable.getColumns().add(postalCodeCategoryColumn);
 
+
+        // Actionevents
         helpMenuBtn.setOnAction(event -> {
             handleHelp();
         });
@@ -111,7 +116,20 @@ public class PrimaryController {
         searchBtn.setOnAction(event -> {
             handleSearch();
         });
+
+
+        //Pressing enter button while typing in seachtext will press handleSeach()
+        searchTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER){
+                    handleSearch();
+                }
+            }
+        });
+
     }
+
 
 
     /**
@@ -169,8 +187,6 @@ public class PrimaryController {
     private void handleAbout() {
         AboutDialog aboutDialog = new AboutDialog();
         aboutDialog.getDialog().showAndWait();
-
-
     }
 
 
