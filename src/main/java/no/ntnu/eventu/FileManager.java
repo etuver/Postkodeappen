@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class FileManager {
 
+
     /**
      * Method to read post addresses from a file and send them to a register
      * @param postalAdressRegister the register to send the post addresses to
@@ -26,11 +27,7 @@ public class FileManager {
                 if (!line.isBlank()){
                     String[] lineInfo = line.split("\t");
                     if (lineInfo.length ==5){
-                        try {
                             postalAdressRegister.registerPostalAdress(lineInfo[0], lineInfo[1], lineInfo[2], lineInfo[3], lineInfo[4]);
-                        }catch (IllegalArgumentException ignored){
-                        }
-
                     }
                 }
         }
