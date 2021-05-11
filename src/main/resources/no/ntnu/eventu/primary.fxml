@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="862.0" styleClass="main" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.eventu.PrimaryController">
    <top>
-      <SplitPane orientation="VERTICAL" prefHeight="51.0" prefWidth="862.0" style="-fx-box-border:transparent;" styleClass="main" BorderPane.alignment="CENTER">
+      <SplitPane orientation="VERTICAL" prefHeight="51.0" prefWidth="862.0" style="-fx-box-border:transparent;" styleClass="top" BorderPane.alignment="CENTER">
          <items>
             <MenuBar>
               <menus>
@@ -33,7 +33,7 @@
       </SplitPane>
    </top>
    <center>
-      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"  />
    </center>
    <bottom>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -42,11 +42,11 @@
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <Button fx:id="searchBtn" layoutX="283.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Søk ">
+            <Button fx:id="searchBtn" layoutX="283.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Søk " styleClass="button">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button fx:id="showAllBtn" layoutX="470.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Vis alle">
+            <Button fx:id="showAllBtn" layoutX="470.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Vis alle" styleClass="button">
                <font>
                   <Font size="14.0" />
                </font></Button>
