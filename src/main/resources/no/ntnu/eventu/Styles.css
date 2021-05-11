@@ -1,14 +1,45 @@
 
 
 .top {
-    -fx-background-color:#98a8bd  ;
+    -fx-background-color:#6d86a4
+
+
 }
 
 .main{
     /*-fx-background-color: #5b8a72;
     -fx-background-color: linear-gradient(#98a8bd 0%, #8195af 25%, #6d86a4 100%);*/
-    -fx-background-color:#98a8bd  ;
+    -fx-background-color:#6d86a4
+
 }
 
-.button {
+
+.searchButton {
+   /* -fx-background-image: url("./images/search.png");*/
+    -fx-background-size: 40px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+   /* -fx-background-color: #a1b5ff; */
+}
+
+.searchButton:hover{
+    -fx-background-color: #e0f8ff;
+    -fx-cursor: hand;
+}
+
+
+.showAllButton {
+    /*-fx-background-image: url("./images/showAll.png");*/
+    -fx-background-size: 40px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.showAllButton:hover{
+    -fx-background-color: #e0f8ff;
+    -fx-cursor: hand;
+}
+
+.tooltip{
+    -fx-show-delay: 300ms;
 }
