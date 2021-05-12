@@ -8,8 +8,8 @@ import no.ntnu.eventu.Minidialogs.HelpDialog;
 
 public class MiniDialogFactory {
 
-    public MiniDialogFactoryInterface getDialog(DialogType dialogType){
-        switch (dialogType){
+    public MiniDialogFactoryInterface getDialog(DialogType dialogType) {
+        switch (dialogType) {
             case Exit:
                 return new ExitDialog();
             case About:
@@ -21,12 +21,11 @@ public class MiniDialogFactory {
     }
 
 
-    public enum DialogType{
+    public enum DialogType {
         Exit,
         About,
         Help
     }
-
 
 
 }
