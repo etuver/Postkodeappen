@@ -43,3 +43,20 @@
 .tooltip{
     -fx-show-delay: 300ms;
 }
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-text-alignment: left;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler{
+    -fx-background-color: #6622CC;
+    -fx-font-size: 16px;
+}
+
+.table-view .cell{
+    -fx-cell-size: 35;
+    -fx-font-size: 14;
+    -fx-text-alignment: center;
+}
