@@ -17,6 +17,7 @@ import no.ntnu.eventu.Minidialogs.HelpDialog;
 
 /**
  * Controller for the app primary view
+ *
  * @author Eventu
  */
 public class PrimaryController {
@@ -123,13 +124,12 @@ public class PrimaryController {
         searchTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER){
+                if (keyEvent.getCode() == KeyCode.ENTER) {
                     handleSearch();
                 }
             }
         });
     }
-
 
 
     /**
@@ -139,15 +139,16 @@ public class PrimaryController {
      */
     private void handleSearch() {
         errorLabel.setText("");
-        if (searchTxt.getText().length() <2 || searchTxt.getText().isBlank()){
+        if (searchTxt.getText().length() < 2 || searchTxt.getText().isBlank()) {
             errorLabel.setText("Vennligst fyll inn minst to tall eller bokstaver for å søke");
-        }else {
-        clearTable();
-        if (searchTxt.getText().matches("^\\d|\\d{2}|\\d{3}|\\d{4}$")) {
-            postalAdressTable.getItems().addAll(postalAdressRegister.searchByPostalCode(searchTxt.getText()));
         } else {
-            postalAdressTable.getItems().addAll(postalAdressRegister.searchByAdress(searchTxt.getText()));
-        }}
+            clearTable();
+            if (searchTxt.getText().matches("^\\d|\\d{2}|\\d{3}|\\d{4}$")) {
+                postalAdressTable.getItems().addAll(postalAdressRegister.searchByPostalCode(searchTxt.getText()));
+            } else {
+                postalAdressTable.getItems().addAll(postalAdressRegister.searchByAdress(searchTxt.getText()));
+            }
+        }
     }
 
     /**
@@ -155,7 +156,7 @@ public class PrimaryController {
      * Shows all postal codes
      */
     private void handleShowAll() {
-        //errorLabel.setText("");
+        errorLabel.setText("");
         clearTable();
         postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
     }
@@ -166,7 +167,7 @@ public class PrimaryController {
      */
     private void handleClose() {
         ExitDialog exitDialog = new ExitDialog();
-        if (exitDialog.getDialog().showAndWait().get() == ButtonType.YES){
+        if (exitDialog.getDialog().showAndWait().get() == ButtonType.YES) {
             Platform.exit();
         }
     }
@@ -199,8 +200,8 @@ public class PrimaryController {
     private void importData() {
         try {
             fileManager.readFromFile(postalAdressRegister, "src/main/resources/no/ntnu/eventu/Postnummerregister.txt");
-        } catch (FileNotFoundException |IllegalArgumentException f) {
-            errorLabel.setText("Det er en feil i filen: "+f.getMessage());
+        } catch (FileNotFoundException | IllegalArgumentException f) {
+            errorLabel.setText("Det er en feil i filen: " + f.getMessage());
         }
     }
 
