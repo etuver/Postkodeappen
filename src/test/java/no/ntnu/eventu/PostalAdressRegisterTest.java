@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Test class for the PostalAdressRegister class
  * Tests are concluded with JUnit5
+ *
  * @author Eventu
  */
 class PostalAdressRegisterTest {
@@ -18,11 +19,11 @@ class PostalAdressRegisterTest {
      * Just adding some postal addresses to the register initially
      */
     @BeforeEach
-    public void setup(){
-        register.registerPostalAdress("7020", "Trondheim","5001","Trøndelag","G");
-        register.registerPostalAdress("0800", "Oslo","0200","Oslo","F");
-        register.registerPostalAdress("9590", "Hasvik","5001","Hasvik","B");
-        register.registerPostalAdress("7500", "Levanger","5001","Trøndelag","B");
+    public void setup() {
+        register.registerPostalAdress("7020", "Trondheim", "5001", "Trøndelag", "G");
+        register.registerPostalAdress("0800", "Oslo", "0200", "Oslo", "F");
+        register.registerPostalAdress("9590", "Hasvik", "5001", "Hasvik", "B");
+        register.registerPostalAdress("7500", "Levanger", "5001", "Trøndelag", "B");
     }
 
     /**
@@ -30,8 +31,8 @@ class PostalAdressRegisterTest {
      * Asserting the Postal address has been added to the register in addition to the four initially added
      */
     @Test
-    public void testRegisterPostalAddress(){
-        register.registerPostalAdress("3477", "Båtstø","5001","Asker","S");
+    public void testRegisterPostalAddress() {
+        register.registerPostalAdress("3477", "Båtstø", "5001", "Asker", "S");
         assertEquals(5, register.getPostalAdressRegister().size());
     }
 
@@ -43,15 +44,23 @@ class PostalAdressRegisterTest {
      * Asserting no postal addresses has been added to the register
      */
     @Test
-    public void testRegisterNewPostalAddressInvalidPostalCode(){
+    public void testRegisterNewPostalAddressInvalidPostalCode() {
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("", "Båtstø","5001","Asker","S");});
+                () -> {
+                    register.registerPostalAdress("", "Båtstø", "5001", "Asker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("123", "Båtstø","5001","Asker","S");});
+                () -> {
+                    register.registerPostalAdress("123", "Båtstø", "5001", "Asker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("12345", "Båtstø","5001","Asker","S");});
+                () -> {
+                    register.registerPostalAdress("12345", "Båtstø", "5001", "Asker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("123x", "Båtstø","5001","Asker","S");});
+                () -> {
+                    register.registerPostalAdress("123x", "Båtstø", "5001", "Asker", "S");
+                });
         assertEquals(4, register.getPostalAdressRegister().size());
     }
 
@@ -62,17 +71,27 @@ class PostalAdressRegisterTest {
      * Asserting no postal addresses has been added to the register
      */
     @Test
-    public void testRegisterNewPostalAddressNullParameters(){
+    public void testRegisterNewPostalAddressNullParameters() {
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("", "Båtstø","5001","Asker","S");});
+                () -> {
+                    register.registerPostalAdress("", "Båtstø", "5001", "Asker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("1234", "","5001","Pappesker","S");});
+                () -> {
+                    register.registerPostalAdress("1234", "", "5001", "Pappesker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("1234", "Båtstørrelse","","Flasker","S");});
+                () -> {
+                    register.registerPostalAdress("1234", "Båtstørrelse", "", "Flasker", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("1235", "Båtstøtte","5001","","S");});
+                () -> {
+                    register.registerPostalAdress("1235", "Båtstøtte", "5001", "", "S");
+                });
         assertThrows(IllegalArgumentException.class,
-                () -> { register.registerPostalAdress("1235", "Båtstøtte","5001","Rasker","");});
+                () -> {
+                    register.registerPostalAdress("1235", "Båtstøtte", "5001", "Rasker", "");
+                });
         assertEquals(4, register.getPostalAdressRegister().size());
     }
 
@@ -81,8 +100,8 @@ class PostalAdressRegisterTest {
      * Asserting the size of the list returned is as expected
      */
     @Test
-    public void testSearchByPostalCode(){
-        assertEquals(0,register.searchByPostalCode("99").size());
+    public void testSearchByPostalCode() {
+        assertEquals(0, register.searchByPostalCode("99").size());
         assertEquals(1, register.searchByPostalCode("7020").size());
         assertEquals(2, register.searchByPostalCode("00").size());
     }
@@ -92,7 +111,7 @@ class PostalAdressRegisterTest {
      * asserting the size of the list returned is as expected
      */
     @Test
-    public void testSeachByAdress(){
+    public void testSeachByAdress() {
         assertEquals(0, register.searchByAdress("ko").size());
         assertEquals(1, register.searchByAdress("Trondheim").size());
         assertEquals(2, register.searchByAdress("Trøndelag").size());
@@ -102,10 +121,6 @@ class PostalAdressRegisterTest {
 
 
     }
-
-
-
-
 
 
 }

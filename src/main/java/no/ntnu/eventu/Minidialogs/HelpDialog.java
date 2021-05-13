@@ -15,7 +15,7 @@ public class HelpDialog implements MiniDialogFactoryInterface {
         Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
         helpAlert.setTitle("Hjelp");
         helpAlert.setHeaderText("Hjelp");
-        Label contentText = new Label(  "Denne appen inneholder alle postnummer i fastlands-Norge samt Svaldbard og Jan Mayen\n\n" +
+        Label contentText = new Label("Denne appen inneholder alle postnummer i fastlands-Norge samt Svaldbard og Jan Mayen\n\n" +
                 "For å søke skriv inn hele eller deler av postnummer eller poststed / kommune og trykk søk / ente\n\n" +
                 "Dersom du ikke finner det du søker etter prøv å endre din søketekst\n\n" +
                 "Et søk må minimum være på to tall eller bokstaver\n\n" +
@@ -33,7 +33,7 @@ public class HelpDialog implements MiniDialogFactoryInterface {
                 }
         );
         FlowPane flowPane = new FlowPane();
-        flowPane.getChildren().addAll(contentText,hyperlink);
+        flowPane.getChildren().addAll(contentText, hyperlink);
         helpAlert.getDialogPane().contentProperty().set(flowPane);
         return helpAlert;
     }
