@@ -67,7 +67,7 @@ public class PostalAdress {
         }else if (postalAdressCategory.equalsIgnoreCase("F")){
             return "Flere bruksområder(Felles)";
         }else if (postalAdressCategory.equalsIgnoreCase("G")){
-            return "Gateadresse";
+            return "Gateadresser";
         }else if (postalAdressCategory.equalsIgnoreCase("P")){
             return "Postbokser";
         }else if (postalAdressCategory.equalsIgnoreCase("S")){
