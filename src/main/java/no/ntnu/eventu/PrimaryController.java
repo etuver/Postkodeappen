@@ -157,6 +157,7 @@ public class PrimaryController {
      */
     private void handleShowAll() {
         errorLabel.setText("");
+        searchTxt.clear();
         clearTable();
         postalAdressTable.getItems().addAll(postalAdressRegister.getPostalAdressRegister());
     }
@@ -200,8 +201,10 @@ public class PrimaryController {
     private void importData() {
         try {
             fileManager.readFromFile(postalAdressRegister, "src/main/resources/no/ntnu/eventu/Postnummerregister.txt");
-        } catch (FileNotFoundException | IllegalArgumentException f) {
-            errorLabel.setText("Det er en feil i filen: " + f.getMessage());
+        } catch (FileNotFoundException f) {
+            errorLabel.setText("Filen ble ikke funnet. trykk hjelp for mer info.");
+        } catch (IllegalArgumentException i) {
+            errorLabel.setText("Det er en feil i filen, trykk hjelp for mer info.");
         }
     }
 
