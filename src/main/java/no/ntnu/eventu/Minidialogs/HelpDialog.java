@@ -15,10 +15,12 @@ public class HelpDialog implements MiniDialogFactoryInterface {
         Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
         helpAlert.setTitle("Hjelp");
         helpAlert.setHeaderText("Hjelp");
-        Label contentText = new Label(  "Denne appen inneholder alle postnummer i fastlandsNorge samt Svaldbard og Jan Mayen\n\n" +
-                "For å søke skriv inn hele eller deler av postnummer eller poststed / kommune og trykk søk / enter\n\n" +
+        Label contentText = new Label(  "Denne appen inneholder alle postnummer i fastlands-Norge samt Svaldbard og Jan Mayen\n\n" +
+                "For å søke skriv inn hele eller deler av postnummer eller poststed / kommune og trykk søk / ente\n\n" +
                 "Dersom du ikke finner det du søker etter prøv å endre din søketekst\n\n" +
-                "Et søk må minimum være på to tall eller bokstaver\n\n\n" +
+                "Et søk må minimum være på to tall eller bokstaver\n\n" +
+                "Hvis du får melding om feil i filen prøv å laste ned datafilen med postynummer på nytt,\n" +
+                "se README.md filen for veiledning.\n\n" +
                 "Opplever du problemer med appen vennligst ta kontakt:" +
                 "");
 
