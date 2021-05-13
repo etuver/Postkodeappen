@@ -22,7 +22,7 @@ class PostalAdressTest {
         assertEquals("Trondheim", postalAdress.getPostalAdress());
         assertEquals("5001", postalAdress.getMunicipalityCode());
         assertEquals("Trøndelag", postalAdress.getMunicipalityName());
-        assertEquals("Gateadresse", postalAdress.getPostalAdressCategory());
+        assertEquals("Gateadresser", postalAdress.getPostalAdressCategory());
     }
 
     /**
@@ -76,7 +76,7 @@ class PostalAdressTest {
         PostalAdress postalAdressP = new PostalAdress("9730", "Karasjok","5001","Karasjohka Karasjohka","P");
         PostalAdress postalAdressS = new PostalAdress("3477", "Båtstø","5001","Asker","S");
         PostalAdress postalAdressX = new PostalAdress("7500", "Levanger","5001","Trøndelag","X");
-        assertEquals("Gateadresse", postalAdressG.getPostalAdressCategory());
+        assertEquals("Gateadresser", postalAdressG.getPostalAdressCategory());
         assertEquals("Flere bruksområder(Felles)", postalAdressF.getPostalAdressCategory());
         assertEquals("Gateadresser og postbokser", postalAdressB.getPostalAdressCategory());
         assertEquals("Postbokser", postalAdressP.getPostalAdressCategory());
