@@ -33,7 +33,11 @@
       </SplitPane>
    </top>
    <center>
-      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" styleClass="tableView"/>
+      <TableView fx:id="postalAdressTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" styleClass="tableView">
+          <placeholder>
+              <Label text="Ingen Treff. Prøv å endre dine søkekriterier" styleClass="placeholder"/>
+          </placeholder>
+      </TableView>
    </center>
    <bottom>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
