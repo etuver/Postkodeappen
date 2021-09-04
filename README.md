@@ -38,3 +38,5 @@ To update the file with postal addresses follow these steps:
 1. Download the data file from [Bring.no](https://www.bring.no/tjenester/adressetjenester/postnummer/postnummertabeller-veiledning) section three (Tab- separated Ansi/Windows format).
 2. Rename the file to "Postnummerregister.txt". Nb! Remember capital P.
 3. place the file in the src/main/resources/no/ntnu/eventu folder. Press yes to overwrite existing file if prompted.
+
+![PostkodeAppen](src/main/resources/no/ntnu/eventu/postkodeappen.JPG)
